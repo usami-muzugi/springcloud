@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: discovery
+#服务端口号
+server:
+  port: 8000
+  ###eureka基本配置信息
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      ####注册地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      ###因为自己是注册中心，是否需要将自己注册给自己（集群时是需要为 true)
+    register-with-eureka: false
+    #####因为自己是注册中心，不需要去检索服务信息
+    fetch-registry: false
